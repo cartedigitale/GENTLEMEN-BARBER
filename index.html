@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#141210">
+  <meta name="description" content="Barbier">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="Gentlemen Barber | Aurélien">
+  <meta property="og:description" content="Barbier">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cartedigitale.github.io/GENTLEMEN-BARBER/">
+  <meta property="og:image" content="https://cartedigitale.github.io/GENTLEMEN-BARBER/photo.jpg">
+  <title>Gentlemen Barber | Aurélien</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&amp;family=Inter:wght@400;600;700&amp;display=swap">
+  <style>
+    :root {
+      --bg: #141210; --surface: #211c18; --text: #f3ece2; --muted: #a99c8c;
+      --accent: #c8a165; --on-accent: #111111; --accent-text: #c8a165; --accent-surface: #c8a165;
+      --display: "Oswald", Georgia, serif; --body: "Inter", -apple-system, "Segoe UI", Roboto, sans-serif;
+      --line: color-mix(in srgb, #f3ece2 14%, transparent);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { background: var(--bg); -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body { font-family: var(--body); color: var(--text); background: var(--bg); line-height: 1.45; }
+    a { color: inherit; -webkit-tap-highlight-color: transparent; }
+    .wrap { max-width: 460px; min-height: 100vh; min-height: 100dvh; margin: 0 auto; padding-bottom: max(26px, env(safe-area-inset-bottom)); overflow: hidden; }
+
+    .hero { display: flex; flex-direction: column; position: relative; }
+    .ornament { height: 14px; background: repeating-linear-gradient(-45deg,#b3261e 0 14px,#f3ece2 14px 28px,#1f3a93 28px 42px,#f3ece2 42px 56px); flex: none; }
+    .media { position: relative; overflow: hidden; background: var(--surface); }
+    .media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .identity { position: relative; z-index: 1; padding: 20px 24px 0; text-align: center; }
+    .logo { display: block; width: 64px; height: 64px; object-fit: contain; margin: 0 auto 12px; padding: 5px; background: #fff; border-radius: 16px; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
+    .kicker { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-text); }
+    h1 { margin-top: 6px; font-family: var(--display); font-weight: 600; font-size: calc(36px * 0.8); line-height: 1.08; letter-spacing: .04em; text-transform: uppercase; overflow-wrap: anywhere; }
+    .sub { margin-top: 6px; font-weight: 600; font-size: 14px; }
+    .tagline { margin-top: 8px; color: var(--muted); font-size: 15px; }
+    .status { display: inline-block; margin-top: 12px; padding: 4px 11px; border-radius: 99px; font-size: 12px; font-weight: 700; background: var(--surface); border: 1px solid var(--line); }
+    .status::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; vertical-align: 1px; background: #d9534f; }
+    .status.open::before { background: #2fae66; }
+
+    /* Portrait rond */
+    .no-media .identity { margin-top: 0; padding-top: 30px; }
+    .no-media.l-sign .identity { margin-top: 20px; padding-top: 18px; }
+    .no-media.l-arch .hero::before { display: none; }
+    .l-round .media { width: 148px; height: 148px; margin: 30px auto 0; border-radius: 50%; border: 3px solid var(--accent); padding: 4px; background: var(--bg); }
+    .l-round .media img { border-radius: 50%; }
+    /* Grande photo */
+    .l-cover .media { aspect-ratio: 4 / 3; }
+    .l-cover .media::after { content: ""; position: absolute; inset: 68% 0 -1px; background: linear-gradient(transparent, var(--bg) 92%); }
+    .l-cover .identity { margin-top: -22px; }
+    /* Arche */
+    .l-arch .media { width: 62%; aspect-ratio: 4 / 5; margin: 34px auto 0; border-radius: 999px 999px 14px 14px; }
+    .l-arch .hero::before { content: ""; position: absolute; top: 24px; left: calc(19% - 10px); width: calc(62% + 20px); aspect-ratio: 4.4 / 5.45; border: 1px solid var(--accent); border-radius: 999px 999px 20px 20px; opacity: .55; }
+    /* Enseigne */
+    .l-sign .ornament { order: -2; }
+    .l-sign .identity { order: -1; margin: 20px 18px 0; padding: 18px 16px 20px; background: var(--surface); border: 2px solid var(--accent); outline: 1px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    .l-sign .media { aspect-ratio: 3 / 2; margin: 20px 18px 0; border-radius: 6px; }
+    /* Impact */
+    .l-bold .media { aspect-ratio: 4 / 3; clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%); }
+    .l-bold .identity { text-align: left; padding-top: 10px; }
+    .l-bold h1 { font-size: calc(54px * 0.8); line-height: 1; }
+    .l-bold .logo { margin: 0 0 12px; }
+
+    .actions { padding: 22px 20px 0; }
+    .actions > :first-child { margin-top: 0; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 18px; border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 16px; transition: transform .15s ease; }
+    .btn.main { background: var(--accent); color: var(--on-accent); }
+    .btn.alt { margin-top: 10px; border: 1.5px solid var(--line); }
+    .btn:active, .q:active { transform: scale(.98); }
+    svg { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .quick { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .q { flex: 1 1 30%; min-width: 92px; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 13px 6px; text-decoration: none; text-align: center; font-size: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; transition: transform .15s ease; }
+    .q svg { color: var(--accent-surface); }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+
+    .offer { margin: 20px 20px 0; padding: 14px 16px; background: var(--accent); color: var(--on-accent); border-radius: 14px; }
+    .offer small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .85; }
+    .offer strong { display: block; margin-top: 2px; font-size: 16px; }
+    .sec { margin: 24px 20px 0; }
+    .sec h2 { margin-bottom: 10px; font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.15; letter-spacing: .04em; text-transform: uppercase; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 4px 16px; }
+    .items { list-style: none; padding: 8px 0; }
+    .items li { padding: 8px 0; }
+    .line { display: flex; align-items: baseline; gap: 8px; }
+    .name { font-weight: 600; }
+    .dots { flex: 1; min-width: 12px; border-bottom: 1px dotted var(--muted); transform: translateY(-3px); }
+    .price { font-weight: 700; color: var(--accent-surface); white-space: nowrap; }
+    .detail { margin-top: 1px; color: var(--muted); font-size: 13px; }
+    details + details, details + .items { border-top: 1px solid var(--line); }
+    summary { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; font-weight: 700; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 20px; line-height: 1; color: var(--accent-surface); }
+    details[open] > summary::after { content: "–"; }
+    .hours table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 14px; }
+    .hours th { text-align: left; font-weight: 400; color: var(--muted); padding: 5px 0; vertical-align: top; }
+    .hours td { text-align: right; padding: 5px 0; }
+    .hours tr.today th, .hours tr.today td { color: var(--text); font-weight: 700; }
+    .facts { display: grid; gap: 8px; }
+    .fact { display: flex; justify-content: space-between; gap: 16px; font-size: 14px; }
+    .fact span { color: var(--muted); }
+    .fact strong { text-align: right; font-weight: 600; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; list-style: none; margin: 20px 20px 0; }
+    .tags li { padding: 5px 12px; font-size: 12px; border: 1px solid var(--line); border-radius: 99px; }
+    .review { margin: 20px 20px 0; }
+    .address, .number { padding: 0 24px; text-align: center; color: var(--muted); font-size: 13px; }
+    .address { margin-top: 24px; }
+    .number { margin-top: 24px; }
+    .address + .number { margin-top: 4px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, .q { transition: none; } }
+    @media (min-width: 500px) { body { background: color-mix(in srgb, var(--bg) 88%, #000); } .wrap { background: var(--bg); box-shadow: 0 0 60px rgba(0,0,0,.25); } }
+  </style>
+</head>
+<body>
+  <div class="wrap l-round">
+    <header class="hero">
+      <div class="ornament"></div>
+      <div class="media"><img src="photo.jpg" alt="Gentlemen Barber"></div>
+      <div class="identity">
+        
+        
+        <h1>Gentlemen Barber</h1>
+        <p class="sub">Aurélien</p>
+        
+        <p id="status" class="status" hidden></p>
+      </div>
+    </header>
+
+    <div class="actions">
+      
+      <a class="btn main" href="contact.vcf" download="Gentlemen-Barber-Aurelien.vcf">Ajouter aux contacts</a>
+      <div class="quick">
+      <a class="q" href="tel:+33615910076" aria-label="Appeler Gentlemen Barber"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span>Appeler</span></a>
+      <a class="q" href="https://www.google.com/maps/search/?api=1&amp;query=43.232303976983815%2C0.07172830719147064" target="_blank" rel="noopener noreferrer" aria-label="Itinéraire vers Gentlemen Barber"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Itinéraire</span></a>
+      <a class="q" href="https://www.instagram.com/yassine_akc/" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir Instagram de Gentlemen Barber"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg><span>Instagram</span></a>
+      </div>
+    </div>
+
+
+    <section class="sec" id="carte">
+      <h2>Prestations</h2>
+      <div class="panel"><details open><summary>Coupes</summary><ul class="items"><li><div class="line"><span class="name">Coupe homme</span><span class="dots"></span><span class="price">17 €</span></div></li><li><div class="line"><span class="name">Coupe et barbe</span><span class="dots"></span><span class="price">25 €</span></div></li><li><div class="line"><span class="name">Coupe enfant</span><span class="dots"></span><span class="price">15 €</span></div><p class="detail">Jusqu&#39;à 12 ans</p></li></ul></details>
+<details><summary>Barbe</summary><ul class="items"><li><div class="line"><span class="name">Taille de barbe</span><span class="dots"></span><span class="price">12 €</span></div></li><li><div class="line"><span class="name">Rasage à l&#39;ancienne</span><span class="dots"></span><span class="price">18 €</span></div><p class="detail">Serviette chaude et blaireau</p></li></ul></details></div>
+    </section>
+
+
+    <section class="sec">
+      <details class="panel hours">
+        <summary>Horaires</summary>
+        <table><tr data-day="1"><th scope="row">Lundi</th><td>09:00 – 19:00</td></tr><tr data-day="2"><th scope="row">Mardi</th><td>09:00 – 19:00</td></tr><tr data-day="3"><th scope="row">Mercredi</th><td>09:00 – 19:00</td></tr><tr data-day="4"><th scope="row">Jeudi</th><td>09:00 – 19:00</td></tr><tr data-day="5"><th scope="row">Vendredi</th><td>09:00 – 19:00</td></tr><tr data-day="6"><th scope="row">Samedi</th><td>09:00 – 19:00</td></tr></table>
+      </details>
+    </section>
+
+    <ul class="tags"><li>Sans rendez-vous</li><li>Sur rendez-vous</li></ul>
+
+
+    <p class="address">Tarbes, 65000</p>
+    <p class="number">+33 6 15 91 00 76</p>
+  </div>
+<script>
+(function(){
+  var H=[[],[[540,1140]],[[540,1140]],[[540,1140]],[[540,1140]],[[540,1140]],[[540,1140]]],D=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  var n=new Date(),d=n.getDay(),m=n.getHours()*60+n.getMinutes(),e=document.getElementById('status');
+  function f(x){x=x%1440;return ('0'+Math.floor(x/60)).slice(-2)+':'+('0'+x%60).slice(-2)}
+  function show(o,t){e.hidden=false;e.className='status '+(o?'open':'closed');e.textContent=t}
+  var row=document.querySelector('[data-day="'+d+'"]');if(row)row.className='today';
+  var y=H[(d+6)%7],i,j,s;
+  for(j=0;j<y.length;j++)if(y[j][1]>1440&&m<y[j][1]-1440)return show(true,'Ouvert · ferme à '+f(y[j][1]));
+  for(j=0;j<H[d].length;j++){s=H[d][j];if(m>=s[0]&&m<s[1])return show(true,'Ouvert · ferme à '+f(s[1]))}
+  for(i=0;i<8;i++){var l=H[(d+i)%7];for(j=0;j<l.length;j++){if(i>0||l[j][0]>m){
+    return show(false,'Fermé · ouvre '+(i===0?'à ':i===1?'demain à ':D[(d+i)%7]+' à ')+f(l[j][0]))}}}
+})();
+</script>
+</body>
+</html>
